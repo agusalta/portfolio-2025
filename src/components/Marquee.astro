@@ -5,52 +5,78 @@
         <object class="svg-object" type="image/svg+xml" data="/src/assets/ORT.svg"></object>
         <object class="svg-object" type="image/svg+xml" data="/src/assets/UTN.svg"></object>
 
-        <!-- Contenido duplicado -->
-        <object class="svg-object" type="image/svg+xml" data="/src/assets/CODERHOUSE.svg"></object>
-        <object class="svg-object" type="image/svg+xml" data="/src/assets/ORT.svg"></object>
-        <object class="svg-object" type="image/svg+xml" data="/src/assets/UTN.svg"></object>
     </div>
 </div>
 
 <style is:inline>
     .div9 {
-        width: 100%; /* Asegura que ocupe todo el ancho disponible */
-        height: 150px; /* Aumentamos la altura para un mejor aspecto */
-        overflow: hidden; /* Evita que el contenido se desborde */
+        width: 100%; 
+        height: 150px; 
+        overflow: hidden; 
         position: relative;
-        background: var(--icons); /* Fondo moderno */
+        background: var(--icons); 
         display: flex;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra para un efecto elevado */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+        cursor: crosshair;
     }
 
     .marquee {
-        display: flex; /* Coloca los objetos SVG en fila */
-        animation: scroll 20s linear infinite; /* Animación infinita */
+        display: flex; 
+        animation: scroll 20s linear infinite; 
         position: absolute;
-        white-space: nowrap; /* Evita que los elementos se envuelvan */
+        white-space: nowrap; 
+ 
     }
 
     .svg-object {
-        width: 300px;  /* Ajusta al tamaño deseado */
+        width: 300px; 
         height: auto;
-        margin-right: 50px; /* Espacio entre los objetos */
-        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2)); /* Sombra para los SVG */
-        transition: transform 0.3s ease; /* Transición suave al pasar el mouse */
+        margin-right: 50px; 
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2)); 
+        transition: transform 0.3s ease; 
     }
 
     .svg-object:hover {
-        transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+        transform: scale(1.1); 
     }
 
-    /* Animación de desplazamiento */
     @keyframes scroll {
         0% {
-            transform: translateX(0); /* Empieza en el punto inicial */
+            transform: translateX(0); 
         }
         100% {
-            transform: translateX(-50%); /* Desplaza el contenido a la izquierda */
+            transform: translateX(-50%); /
         }
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const marquee = document.querySelector(".marquee") as HTMLElement | null;
+        if (!marquee) return;
+        
+        const items = Array.from(marquee.children) as HTMLElement[]; // Aseguramos el tipo correcto
+
+        function duplicateItems() {
+            if (!marquee) return;
+            let totalWidth = 0;
+            
+            items.forEach(item => {
+                totalWidth += (item as HTMLElement).offsetWidth + 50; // Convertimos `item` a `HTMLElement`
+            });
+
+            while (totalWidth < window.innerWidth * 2) {
+                items.forEach(item => {
+                    let clone = item.cloneNode(true) as HTMLElement;
+                    marquee.appendChild(clone);
+                });
+                totalWidth *= 2;
+            }
+        }
+
+        duplicateItems();
+    });
+
+</script>
