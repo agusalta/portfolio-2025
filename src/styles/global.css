@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --background: #eae4da;
+  --text-primary: #1d1d1b;
+  --text-secondary: #ed773c;
+  --button-bg: #ed773c;
+  --button-hover: #ed773c;
+  --button-text: #eae4da;
+  --border: #eae4da;
+  --icons: #d84c47;
+  --hero: #d84c47;
+}
+
+html.dark {
+  --background: #1d1d1b;
+  --text-primary: #eae4da;
+  --text-secondary: #eac119;
+  --button-bg: #c63f3e;
+  --button-hover: #d84c47;
+  --button-text: #eae4da;
+  --border: #d84c47;
+  --icons: #eac119;
+  --hero: #1d1d1b;
+}
+
+::selection {
+  background-color: var(--text-primary);
+  color: var(--background);
+}
+
+/* Recht */
+@font-face {
+  font-family: "Recht";
+  src: url("/fonts/recht/recht-regular.otf") format("opentype");
+  font-weight: 400; /* Normal */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Recht";
+  src: url("/fonts/recht/recht-semibold.otf") format("opentype");
+  font-weight: 600; /* Semibold */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Recht";
+  src: url("/fonts/recht/recht-semibolditalic.otf") format("opentype");
+  font-weight: 600; /* Semibold, itálica */
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Mangueira */
+@font-face {
+  font-family: "Mangueira";
+  src: url("/fonts/mangueira/mangueira-regular.otf") format("opentype");
+  font-weight: 400; /* Normal */
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Mangueira", "Recht", "Times New Roman", Times, sans-serif;
+}
+
+h1 {
+  font-size: 5rem;
+  font-family: "Mangueira", sans-serif;
+  font-weight: 600;
+  font-style: bold;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+p.text-sm {
+  font-size: 0.875rem;
+}
+
+h1 {
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+a {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}

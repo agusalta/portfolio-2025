@@ -1,0 +1,56 @@
+<div class="div9">
+    <div class="marquee">
+        <!-- Contenido original -->
+        <object class="svg-object" type="image/svg+xml" data="/src/assets/CODERHOUSE.svg"></object>
+        <object class="svg-object" type="image/svg+xml" data="/src/assets/ORT.svg"></object>
+        <object class="svg-object" type="image/svg+xml" data="/src/assets/UTN.svg"></object>
+
+        <!-- Contenido duplicado -->
+        <object class="svg-object" type="image/svg+xml" data="/src/assets/CODERHOUSE.svg"></object>
+        <object class="svg-object" type="image/svg+xml" data="/src/assets/ORT.svg"></object>
+        <object class="svg-object" type="image/svg+xml" data="/src/assets/UTN.svg"></object>
+    </div>
+</div>
+
+<style is:inline>
+    .div9 {
+        width: 100%; /* Asegura que ocupe todo el ancho disponible */
+        height: 150px; /* Aumentamos la altura para un mejor aspecto */
+        overflow: hidden; /* Evita que el contenido se desborde */
+        position: relative;
+        background: var(--icons); /* Fondo moderno */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra para un efecto elevado */
+    }
+
+    .marquee {
+        display: flex; /* Coloca los objetos SVG en fila */
+        animation: scroll 20s linear infinite; /* Animación infinita */
+        position: absolute;
+        white-space: nowrap; /* Evita que los elementos se envuelvan */
+    }
+
+    .svg-object {
+        width: 300px;  /* Ajusta al tamaño deseado */
+        height: auto;
+        margin-right: 50px; /* Espacio entre los objetos */
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2)); /* Sombra para los SVG */
+        transition: transform 0.3s ease; /* Transición suave al pasar el mouse */
+    }
+
+    .svg-object:hover {
+        transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+    }
+
+    /* Animación de desplazamiento */
+    @keyframes scroll {
+        0% {
+            transform: translateX(0); /* Empieza en el punto inicial */
+        }
+        100% {
+            transform: translateX(-50%); /* Desplaza el contenido a la izquierda */
+        }
+    }
+</style>
