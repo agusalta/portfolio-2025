@@ -3,40 +3,42 @@ import Layout from '../../layouts/Layout.astro';
 
 const certificaciones = [
   {
-    titulo: "CERTIFICADO EN DESARROLLO WEB",
-    institucion: "Coderhouse",
-    periodo: "mayo 2022 – julio 2022",
-    descripcion: "Aprendí herramientas como HTML, CSS3, Sass, Bootstrap, Web responsive, Git, control de versiones, la consola y como armar un presupuesto.",
-  },
-  {
-    titulo: "CERTIFICADO EN REACT JS",
-    institucion: "Centro de e-learning UTN",
-    periodo: "dic. 2022 – abril 2023",
-    descripcion: "Aprendí a maquetar páginas SPA con React Js y Material UI.",
-  },
-  {
-    titulo: "CERTIFICADO EN NODE JS",
-    institucion: "Centro de e-learning UTN",
-    periodo: "oct. 2023 – dic. 2023",
-    descripcion: "Adquirí habilidades para integrar bases de datos no relacionales utilizando Node.js con Express y MongoDB.",
-  },
-  {
-    titulo: "ANALISTA DE SISTEMAS",
+    titulo: "Analista de Sistemas",
     institucion: "Instituto ORT",
-    periodo: "mar. 2023 – dic. 2025",
-    descripcion: "Desarrollo en .NET, C# y Java con enfoque en POO. Uso Eclipse y GitHub para una gestión eficiente. Conocimiento en Scrum para colaboración efectiva en proyectos.",
+    periodo: "Marzo 2023 – Diciembre 2025",
+    descripcion: "Formación integral en análisis y desarrollo de sistemas, con énfasis en programación orientada a objetos (POO) utilizando .NET, C# y Java. Familiarización con herramientas como Eclipse y GitHub, y en la aplicación de metodologías ágiles como Scrum para una gestión efectiva de proyectos colaborativos.",
+  },
+  {
+    titulo: "Certificación en Node JS",
+    institucion: "Centro de E-learning UTN",
+    periodo: "Octubre 2023 – Diciembre 2023",
+    descripcion: "Desarrollé conocimientos en la integración de bases de datos no relacionales mediante Node.js, Express y MongoDB, con un enfoque en la creación de APIs escalables y eficientes.",
+  },
+  {
+    titulo: "Certificación en React JS",
+    institucion: "Centro de E-learning UTN",
+    periodo: "Diciembre 2022 – Abril 2023",
+    descripcion: "Adquirí habilidades avanzadas en el desarrollo de aplicaciones de una sola página (SPA) utilizando React JS y Material UI, optimizando la experiencia de usuario y la estructura del código.",
+  },
+  {
+    titulo: "Certificación en Desarrollo Web",
+    institucion: "Coderhouse",
+    periodo: "Mayo 2022 – Julio 2022",
+    descripcion: "Desarrollé competencias en herramientas esenciales para el diseño web, incluyendo HTML, CSS3, Sass, Bootstrap, diseño responsivo, Git y control de versiones, así como en la planificación y elaboración de presupuestos para proyectos web.",
   },
 ];
+
 ---
 
 <Layout title="Mi Educación">
   <div class="education-container">
-    <h1>Certificaciones</h1>
+    <h1>Certificados</h1>
     <div class="cards-grid">
-      {certificaciones.map((cert) => (
+      {certificaciones.map((cert, index) => (
         <div class="card">
+          <div class="card-number">{index + 1}</div>
           <div class="card-header">
-            <h2>{cert.titulo}</h2>
+            <h2 class="uppercase">{cert.titulo}</h2>
             <h3>{cert.institucion}</h3>
             <span class="periodo">{cert.periodo}</span>
           </div>
@@ -62,6 +64,10 @@ const certificaciones = [
     font-size: 2.5rem;
   }
 
+  h3 {
+    color: #c63f3e !important;
+  }
+
   .cards-grid {
     display: grid;  
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -73,6 +79,8 @@ const certificaciones = [
     border-radius: 8px;
     padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    margin-top: 2.5rem;
   }
 
   .card:hover {
@@ -80,8 +88,30 @@ const certificaciones = [
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
 
+  .card-number {
+    position: absolute;
+    top: -40px;
+    left: -10px;
+    color: var(--text-primary);
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0.7;
+    font-family: 'Arial', sans-serif;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .card:hover .card-number {
+    opacity: 1;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+
   .card-header {
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
   }
 
   .card-header h2 {
@@ -117,7 +147,12 @@ const certificaciones = [
     }
 
     .card {
-      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+
+    .card-number {
+      font-size: 3rem;
+      top: -35px;
     }
   }
 </style>

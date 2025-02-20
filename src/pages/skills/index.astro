@@ -114,8 +114,15 @@ const skillCategories = [
 
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+  }
+
+  /* Para grids con número impar de items */
+  .skills-grid:has(:nth-child(odd):last-child) > :last-child {
+    grid-column: 1 / -1;
+    width: 50%;
+    margin: 0 auto;
   }
 
   .skill-item {
@@ -153,7 +160,12 @@ const skillCategories = [
     }
 
     .skills-grid {
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Mantener el centrado en móvil */
+    .skills-grid:has(:nth-child(odd):last-child) > :last-child {
+      width: 75%;
     }
   }
 </style>

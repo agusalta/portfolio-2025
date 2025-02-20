@@ -111,3 +111,14 @@ button {
   border: none;
   cursor: pointer;
 }
+
+@media (max-width: 1300px) {
+  h1 {
+    font-size: 3rem;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+    z-index: -2000;
+    text-shadow: 3px 3px #c63f3e;
+  }
+}
