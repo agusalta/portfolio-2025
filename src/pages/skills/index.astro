@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const skillCategories = [
+  {
+    categoria: "Lenguajes de Programación",
+    skills: [
+      { nombre: "JavaScript", icon: "devicon-javascript-plain" },
+      { nombre: "TypeScript", icon: "devicon-typescript-plain" },
+      { nombre: "C#", icon: "devicon-csharp-plain" },
+      { nombre: "Java", icon: "devicon-java-plain" },
+    ]
+  },
+  {
+    categoria: "Stack MERN",
+    skills: [
+      { nombre: "MongoDB", icon: "devicon-mongodb-plain" },
+      { nombre: "Express", icon: "devicon-express-original" },
+      { nombre: "React", icon: "devicon-react-original" },
+      { nombre: "Node.js", icon: "devicon-nodejs-plain" },
+    ]
+  },
+  {
+    categoria: "Desarrollo Web",
+    skills: [
+      { nombre: "HTML5", icon: "devicon-html5-plain" },
+      { nombre: "CSS3", icon: "devicon-css3-plain" },
+      { nombre: ".NET", icon: "devicon-dot-net-plain" },
+    ]
+  },
+  {
+    categoria: "Bases de Datos",
+    skills: [
+      { nombre: "MongoDB", icon: "devicon-mongodb-plain" },
+      { nombre: "SQL", icon: "devicon-mysql-plain" },
+    ]
+  },
+  {
+    categoria: "Diseño",
+    skills: [
+      { nombre: "Figma", icon: "devicon-figma-plain" },
+      { nombre: "UML", icon: "fa-solid fa-diagram-project" },
+    ]
+  },
+  {
+    categoria: "Frameworks y Librerías",
+    skills: [
+      { nombre: "Material UI", icon: "devicon-materialui-plain" },
+      { nombre: "Bootstrap", icon: "devicon-bootstrap-plain" },
+      { nombre: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
+      { nombre: "Shadcn UI", icon: "fa-solid fa-palette" },
+    ]
+  },
+];
+---
+
+<Layout title="Mis Skills">
+  <div class="skills-container">
+    <h1>Mis Skills</h1>
+    <div class="categories-grid">
+      {skillCategories.map((category) => (
+        <div class="category-card">
+          <h2>{category.categoria}</h2>
+          <div class="skills-grid">
+            {category.skills.map((skill) => (
+              <div class="skill-item">
+                <i class={skill.icon}></i>
+                <span>{skill.nombre}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .category-card {
+    border: 2px solid var(--text-primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .category-card h2 {
+    color: var(--icons);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  .skill-item:hover {
+    background-color: var(--border);
+  }
+
+  .skill-item i {
+    font-size: 2rem;
+    color: var(--text-primary);
+  }
+
+  .skill-item span {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .skills-container {
+      padding: 1rem;
+    }
+
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+  }
+</style>

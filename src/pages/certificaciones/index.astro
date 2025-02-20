@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const certificaciones = [
+  {
+    titulo: "CERTIFICADO EN DESARROLLO WEB",
+    institucion: "Coderhouse",
+    periodo: "mayo 2022 – julio 2022",
+    descripcion: "Aprendí herramientas como HTML, CSS3, Sass, Bootstrap, Web responsive, Git, control de versiones, la consola y como armar un presupuesto.",
+  },
+  {
+    titulo: "CERTIFICADO EN REACT JS",
+    institucion: "Centro de e-learning UTN",
+    periodo: "dic. 2022 – abril 2023",
+    descripcion: "Aprendí a maquetar páginas SPA con React Js y Material UI.",
+  },
+  {
+    titulo: "CERTIFICADO EN NODE JS",
+    institucion: "Centro de e-learning UTN",
+    periodo: "oct. 2023 – dic. 2023",
+    descripcion: "Adquirí habilidades para integrar bases de datos no relacionales utilizando Node.js con Express y MongoDB.",
+  },
+  {
+    titulo: "ANALISTA DE SISTEMAS",
+    institucion: "Instituto ORT",
+    periodo: "mar. 2023 – dic. 2025",
+    descripcion: "Desarrollo en .NET, C# y Java con enfoque en POO. Uso Eclipse y GitHub para una gestión eficiente. Conocimiento en Scrum para colaboración efectiva en proyectos.",
+  },
+];
+---
+
+<Layout title="Mi Educación">
+  <div class="education-container">
+    <h1>Certificaciones</h1>
+    <div class="cards-grid">
+      {certificaciones.map((cert) => (
+        <div class="card">
+          <div class="card-header">
+            <h2>{cert.titulo}</h2>
+            <h3>{cert.institucion}</h3>
+            <span class="periodo">{cert.periodo}</span>
+          </div>
+          <div class="card-body">
+            <p>{cert.descripcion}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .education-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+  }
+
+  .cards-grid {
+    display: grid;  
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+  }
+
+  .card {
+    border: 2px solid var(--text-primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .card-header {
+    margin-bottom: 1rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .card-header h3 {
+    font-size: 1rem;
+    color: var(--icons);
+    margin-bottom: 0.5rem;
+  }
+
+  .periodo {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .card-body p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .education-container {
+      padding: 1rem;
+    }
+
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      margin-bottom: 1rem;
+    }
+  }
+</style>

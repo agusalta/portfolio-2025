@@ -1,0 +1,177 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const proyectos = [
+  {
+    titulo: "CALCULADORA Y MANUAL DE TUBOS DE COBRE",
+    empresa: "Copper Development Association Inc.",
+    periodo: "Ago. 2023 – Nov. 2023",
+    descripcion: "Esta página se centró en la creación de un manual de instrucciones y una calculadora especializada para el dimensionamiento de tubos de cobre. Diseñados específicamente para profesionales de la industria, como fontaneros, contratistas de calefacción e ingenieros, estos recursos son una herramienta esencial para la planificación y diseño de sistemas de rociadores contra incendios, plomería y calefacción solar.",
+    icon: "fa-solid fa-calculator",
+  },
+  {
+    titulo: "SISTEMA DE GESTIÓN MUNICIPAL",
+    empresa: "Municipalidad de San Isidro",
+    periodo: "Ene. 2024 – Dic. 2024",
+    descripcion: "Este sistema fue desarrollado para optimizar la gestión administrativa de la Municipalidad de San Isidro. Entre sus principales funcionalidades se incluyeron el manejo del presentismo, la gestión de viáticos y la administración de empleados según sus roles administrativos. Diseñado para mejorar la eficiencia operativa, este sistema permitió una mejor organización y control de los recursos municipales.",
+    tecnologias: ["React", "Next.js", "Tailwind CSS", "Node.js", "NestJS", "TypeORM (SQL)", "Jira"],
+    icon: "fa-solid fa-building-columns",
+  },
+  {
+    titulo: "CARDIOSYS – SISTEMA DE GESTIÓN MÉDICA",
+    empresa: "Proyecto Personal",
+    periodo: "Ene. 2025 – Actualidad",
+    descripcion: "CardioSys es un sistema especializado en la gestión de consultorios médicos, diseñado para facilitar el manejo de pacientes y su historial clínico. Incluye funcionalidades avanzadas como la administración de archivos médicos, la generación de reportes en formato PDF y un sistema seguro para la gestión de datos clínicos. Este software ha sido una herramienta clave para mejorar la organización y eficiencia en la atención médica, garantizando un acceso rápido y seguro a la información de los pacientes.",
+    icon: "fa-solid fa-heart-pulse",
+  },
+];
+---
+
+<Layout title="Mis Proyectos">
+  <div class="projects-container">
+    <h1>Mis Proyectos</h1>
+    <div class="projects-grid">
+      {proyectos.map((proyecto) => (
+        <article class="project-card">
+          <div class="project-icon">
+            <i class={proyecto.icon}></i>
+          </div>
+          <div class="project-content">
+            <header>
+              <h2>{proyecto.titulo}</h2>
+              <div class="project-meta">
+                <span class="empresa">{proyecto.empresa}</span>
+                <span class="periodo">{proyecto.periodo}</span>
+              </div>
+            </header>
+            <p class="descripcion">{proyecto.descripcion}</p>
+            {proyecto.tecnologias && (
+              <div class="tecnologias">
+                <h3>Tecnologías utilizadas:</h3>
+                <div class="tech-tags">
+                  {proyecto.tecnologias.map((tech) => (
+                    <span class="tech-tag">{tech}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+  }
+
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .project-card {
+    border: 2px solid var(--text-primary);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .project-icon {
+    flex-shrink: 0;
+    font-size: 2.5rem;
+    color: var(--icons);
+    width: 60px;
+    text-align: center;
+  }
+
+  .project-content {
+    flex-grow: 1;
+  }
+
+  .project-content h2 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .empresa {
+    color: var(--icons);
+  }
+
+  .periodo {
+    color: var(--text-secondary);
+  }
+
+  .descripcion {
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .tecnologias h3 {
+    color: var(--icons);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-tag {
+    background-color: var(--border);
+    color: var(--text-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    .projects-container {
+      padding: 1rem;
+    }
+
+    .project-card {
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+
+    .project-icon {
+      width: auto;
+      text-align: left;
+    }
+
+    .project-meta {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+  }
+</style>
