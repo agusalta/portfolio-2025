@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
+import BackButton from '../../components/BackButton.astro';
 const skillCategories = [
   {
     categoria: "Lenguajes de Programación",
@@ -55,8 +55,9 @@ const skillCategories = [
 ---
 
 <Layout title="Mis Skills">
+  <BackButton />
   <div class="skills-container">
-    <h1>Mis Skills</h1>
+    <h2>Mis Skills.</h2>
     <div class="categories-grid">
       {skillCategories.map((category) => (
         <div class="category-card">
@@ -96,9 +97,9 @@ const skillCategories = [
 
   .category-card {
     border: 2px solid var(--text-primary);
-    border-radius: 8px;
     padding: 1.5rem;
     transition: transform 0.3s ease;
+    margin-top: 2rem;
   }
 
   .category-card:hover {
@@ -131,7 +132,6 @@ const skillCategories = [
     align-items: center;
     gap: 0.5rem;
     padding: 1rem;
-    border-radius: 6px;
     transition: background-color 0.3s ease;
   }
 
@@ -166,6 +166,10 @@ const skillCategories = [
     /* Mantener el centrado en móvil */
     .skills-grid:has(:nth-child(odd):last-child) > :last-child {
       width: 75%;
+    }
+
+    .category-card:hover {
+      transform: none;
     }
   }
 </style>

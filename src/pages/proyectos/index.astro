@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import BackButton from '../../components/BackButton.astro';
 
 const proyectos = [
   {
@@ -27,11 +28,12 @@ const proyectos = [
     icon: "fa-solid fa-heart-pulse",
   },
 ];
----
+---Ahora se ve demasiado pequeño
 
 <Layout title="Mis Proyectos">
+  <BackButton />
   <div class="projects-container">
-    <h1>Mis Proyectos</h1>
+    <h2>Proyectos.</h2>
     <div class="projects-grid">
       {proyectos.map((proyecto) => (
         <article class="project-card">
@@ -85,11 +87,11 @@ const proyectos = [
 
   .project-card {
     border: 2px solid var(--text-primary);
-    border-radius: 8px;
     padding: 2rem;
     display: flex;
     gap: 2rem;
     transition: transform 0.3s ease;
+    margin-top: 2rem;
   }
 
   .project-card:hover {
@@ -149,10 +151,9 @@ const proyectos = [
   }
 
   .tech-tag {
-    background-color: var(--border);
-    color: var(--text-primary);
+    background-color: #c63f3e;
+    color: var(--text-invert);
     padding: 0.25rem 0.75rem;
-    border-radius: 999px;
     font-size: 0.875rem;
   }
 
@@ -163,7 +164,7 @@ const proyectos = [
 
     .project-card {
       flex-direction: column;
-      padding: 1.5rem;
+      padding: 2rem;
       gap: 1rem;
     }
 
@@ -175,6 +176,10 @@ const proyectos = [
     .project-meta {
       flex-direction: column;
       gap: 0.25rem;
+    }
+
+    .project-card:hover {
+      transform: none;
     }
   }
 </style>

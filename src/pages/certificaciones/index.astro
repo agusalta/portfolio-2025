@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import BackButton from '../../components/BackButton.astro';
 
 const certificaciones = [
   {
@@ -31,8 +32,9 @@ const certificaciones = [
 ---
 
 <Layout title="Mi Educación">
+  <BackButton />
   <div class="education-container">
-    <h1>Certificados</h1>
+    <h2>Certificados.</h2>
     <div class="cards-grid">
       {certificaciones.map((cert, index) => (
         <div class="card">
@@ -72,11 +74,11 @@ const certificaciones = [
     display: grid;  
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
+    margin-top: 2rem;
   }
 
   .card {
     border: 2px solid var(--text-primary);
-    border-radius: 8px;
     padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
@@ -99,7 +101,6 @@ const certificaciones = [
     opacity: 0.7;
     font-family: 'Arial', sans-serif;
     z-index: 1;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
   }
 
   .card:hover .card-number {
@@ -137,17 +138,13 @@ const certificaciones = [
     color: var(--text-primary);
   }
 
-  @media (max-width: 768px) {
-    .education-container {
-      padding: 1rem;
-    }
-
+  @media (max-width: 1300px) {
     .cards-grid {
       grid-template-columns: 1fr;
     }
 
     .card {
-      margin-top: 2rem;
+      margin-top: 1%;
     }
 
     .card-number {
