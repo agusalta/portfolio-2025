@@ -1,0 +1,27 @@
+---
+// Importamos los SVG
+import CALCULATOR from '../icons/CALCULATOR.svg';
+import BUILDING from '../icons/BUILDING.svg';
+import HEART from '../icons/HEART.svg';
+
+// Propiedades del componente
+const { name } = Astro.props;
+
+// Mapeamos los iconos
+const icons: Record<string, any> = {
+  CALCULATOR,
+  BUILDING,
+  HEART,
+};
+
+const SelectedIcon = icons[name] || null;
+---
+
+{SelectedIcon ? <SelectedIcon class="icon-style" /> : <span>Icono no encontrado</span>}
+
+<style>
+  .icon-style {
+    width: 60px;
+    height: auto;
+  }
+</style>
