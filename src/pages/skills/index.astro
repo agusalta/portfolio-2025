@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BackButton from '../../components/BackButton.astro';
+import { skillCategories } from '../../data/skills';
+import Icons from '../../components/Icons.astro';
+---
+
+<Layout>
+  <BackButton />
+  <div class="skills-container" transition:name="skills">
+    <h2>Mis Skills.</h2>
+    <div class="categories-grid">
+      {skillCategories.map((category) => (
+        <div class="category-card">
+          <h3>{category.categoria}</h3>
+          <div class="skills-grid" title={category.categoria}>
+            {category.skills.map((skill) => (
+              <Icons name={skill.icon}/>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+
+<style>
+  .skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .category-card {
+    border: 2px solid var(--badge);
+    padding: 2rem;
+    transition: transform 0.3s ease;
+    margin-top: 5rem;
+    position: relative;
+  }
+
+  .category-card:hover {
+    transform: translateY(-5px);
+    width: 100%;
+  }
+  
+  h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: var(--icons);
+    width: fit-content;
+    padding: .5rem;
+    position: absolute;
+    top: 0;
+    transform: translate(-1%, -100%);
+    left: 0;  
+    text-transform: uppercase;
+    background-color: var(--badge);
+    color: var(--text-invert);
+  }
+
+  .category-card h2 {
+    color: var(--icons);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: ;
+    place-items: center;  
+  }
+
+  .skills-grid:has(:nth-child(odd):last-child) > :last-child {
+    grid-column: 1 / -1;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .skill-item:hover {
+    background-color: var(--border);
+  }
+
+  .skill-item i {
+    font-size: 2rem;
+    color: var(--text-primary);
+  }
+
+  .skill-item span {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .skills-container {
+      padding: 1rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Mantener el centrado en móvil */
+    .skills-grid:has(:nth-child(odd):last-child) > :last-child {
+      width: 75%;
+    }
+
+    .category-card {
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+
+    .category-card:hover {
+      transform: none;
+    }
+  }
+</style>

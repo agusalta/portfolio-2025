@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BackButton from '../../components/BackButton.astro';
+
+const certificaciones = [
+  {
+    titulo: "Analista de Sistemas",
+    institucion: "Instituto ORT",
+    periodo: "Marzo 2023 – Diciembre 2025",
+    descripcion: "Formación integral en análisis y desarrollo de sistemas, con énfasis en programación orientada a objetos (POO) utilizando .NET, C# y Java. Familiarización con herramientas como Eclipse y GitHub, y en la aplicación de metodologías ágiles como Scrum para una gestión efectiva de proyectos colaborativos.",
+  },
+  {
+    titulo: "Certificación en Node JS",
+    institucion: "Centro de E-learning UTN",
+    periodo: "Octubre 2023 – Diciembre 2023",
+    descripcion: "Desarrollé conocimientos en la integración de bases de datos no relacionales mediante Node.js, Express y MongoDB, con un enfoque en la creación de APIs escalables y eficientes.",
+  },
+  {
+    titulo: "Certificación en React JS",
+    institucion: "Centro de E-learning UTN",
+    periodo: "Diciembre 2022 – Abril 2023",
+    descripcion: "Adquirí habilidades avanzadas en el desarrollo de aplicaciones de una sola página (SPA) utilizando React JS y Material UI, optimizando la experiencia de usuario y la estructura del código.",
+  },
+  {
+    titulo: "Certificación en Desarrollo Web",
+    institucion: "Coderhouse",
+    periodo: "Mayo 2022 – Julio 2022",
+    descripcion: "Desarrollé competencias en herramientas esenciales para el diseño web, incluyendo HTML, CSS3, Sass, Bootstrap, diseño responsivo, Git y control de versiones, así como en la planificación y elaboración de presupuestos para proyectos web.",
+  },
+];
+
+---
+
+<Layout title="Mi Educación">
+  <BackButton />
+  <div class="education-container" transition:name="certificaciones">
+    <h2 >Certificados.</h2>
+    <div class="cards-grid">
+      {certificaciones.map((cert, index) => (
+        <div class="card">
+          <div class="card-number">{index + 1}</div>
+          <div class="card-header">
+            <h2 class="uppercase">{cert.titulo}</h2>
+            <h3>{cert.institucion}</h3>
+            <span class="periodo">{cert.periodo}</span>
+          </div>
+          <div class="card-body">
+            <p>{cert.descripcion}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .education-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    color: #c63f3e !important;
+  }
+
+  .cards-grid {
+    display: grid;  
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .card {
+    border: 2px solid var(--text-primary);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    margin-top: 2.5rem;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .card-number {
+    position: absolute;
+    top: -40px;
+    left: -10px;
+    color: var(--text-primary);
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0.7;
+    font-family: 'Arial', sans-serif;
+    z-index: 1;
+  }
+
+  .card:hover .card-number {
+    opacity: 1;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+
+  .card-header {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-header h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .card-header h3 {
+    font-size: 1rem;
+    color: var(--icons);
+    margin-bottom: 0.5rem;
+  }
+
+  .periodo {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .card-body p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 1300px) {
+    .education-container {
+      padding: 1rem;
+    }
+    
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      margin-top: 1%;
+    }
+
+    .card-number {
+      font-size: 3rem;
+      top: -35px;
+    }
+  }
+</style>

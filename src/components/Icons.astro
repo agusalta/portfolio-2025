@@ -1,0 +1,65 @@
+---
+// Importamos los SVG
+import CALCULATOR from '../icons/CALCULATOR.svg';
+import BUILDING from '../icons/BUILDING.svg';
+import HEART from '../icons/HEART.svg';
+import javascript from '../icons/javascript.svg';
+import typescript from '../icons/typescript.svg';
+import csharp from '../icons/csharp.svg';
+import java from '../icons/java.svg';
+import mongo from '../icons/mongo.svg';
+import express from '../icons/express.svg';
+import react from '../icons/react.svg';
+import node from '../icons/node.svg';
+import html from '../icons/html.svg';
+import css from '../icons/css.svg';
+import dotnet from '../icons/dotnet.svg';
+import sql from '../icons/sql.svg';
+import materialui from '../icons/materialui.svg';
+import figma from '../icons/figma.svg';
+import bootstrap from '../icons/bootstrap.svg';    
+import tailwind from '../icons/tailwind.svg'; 
+import astro from '../icons/astro.svg';
+import sass from '../icons/sass.svg';
+import next from '../icons/next.svg';
+
+// Propiedades del componente
+const { name } = Astro.props;
+
+// Mapeamos los iconos
+const icons: Record<string, any> = {
+  CALCULATOR,
+  BUILDING,
+  HEART,
+  javascript,
+  typescript,
+  csharp,
+  java,
+  mongo,
+  express,
+  react,
+  node,
+  html,
+  css,
+  dotnet,
+  sql,
+  materialui,
+  figma,
+  bootstrap,    
+  tailwind,
+  astro,
+  sass,
+  next,
+};
+
+const SelectedIcon = icons[name] || null;
+---
+
+{SelectedIcon ? <SelectedIcon class="icon-style" /> : <span>Icono no encontrado</span>}
+
+<style>
+  .icon-style {
+    width: 60px;
+    height: auto;
+  }
+</style>

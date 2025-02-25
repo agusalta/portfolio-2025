@@ -1,17 +1,25 @@
-	<!doctype html>
-	<html lang="en">
-		<head>
-			<meta charset="UTF-8" />
-			<meta name="viewport" content="width=device-width" />
-			<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-			<link rel="stylesheet" href="/src/styles/normalize.css" />
-			<link rel="stylesheet" href="/src/styles/global.css" />
-			<meta name="generator" content={Astro.generator} />
-			<title>Astro Basics</title>
-		</head>
-		<body>
-			<slot />
-		</body>
+---
+import PreloadSkillIcons from '../components/PreloadSkillIcons.astro';
+import { ClientRouter } from 'astro:transitions';
+import ThemeIcon from '../components/ThemeIcon.astro';
+---
 
-	</html>
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="/src/styles/normalize.css" />
+		<link rel="stylesheet" href="/src/styles/global.css" />
+		<meta name="generator" content={Astro.generator} />
+		<PreloadSkillIcons />
+		<title>Agustin Altamirano</title>
+		<ClientRouter fallback="swap"/>
+	</head>
+	<body>
+		<ThemeIcon/>
+		<slot />
+	</body>
+</html>
 
