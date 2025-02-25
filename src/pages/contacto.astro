@@ -4,7 +4,7 @@ import BackButton from '../components/BackButton.astro';
 ---
 
 <Layout>
-  <div class="flex items-center justify-center min-h-screen w-full p-8">
+  <div class="flex items-center justify-center min-h-screen w-full p-8" transition:name="contacto">
     <BackButton />
     <div class="contact-container">
       <div class="contact-header">
@@ -77,6 +77,8 @@ import BackButton from '../components/BackButton.astro';
     max-width: 600px;
     border: 2px solid var(--text-primary);
     padding: 2rem;
+    transition: all 0.3s ease;
+
   }
 
   .contact-header h1 {
@@ -167,7 +169,7 @@ import BackButton from '../components/BackButton.astro';
   @media (max-width: 768px) {
     .contact-container {
       margin: 1rem;
-      padding: 2rem;
+      padding: 1rem;
     }
 
     .contact-header h1 {
@@ -176,6 +178,14 @@ import BackButton from '../components/BackButton.astro';
 
     .social-links {
       padding: 0 1rem;
+    }
+
+    .social-links .info-item {
+      transition: all 0.3s ease;
+    }
+
+    .social-links .info-item:hover {
+      transform: scale(1.1);
     }
   }
 </style> 

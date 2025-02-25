@@ -10,6 +10,6 @@ export default defineConfig({
   experimental: {
     svg: true,
   },
-
+  prefetch: true,
   integrations: [react()],
 });

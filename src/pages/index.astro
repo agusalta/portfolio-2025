@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Marquee from "../components/Marquee.astro"
+import Marquee from "../components/Marquee.astro";
 ---
 
 <Layout>
@@ -55,17 +55,17 @@ import Marquee from "../components/Marquee.astro"
                <p>agustinaltamirano2024@gmail.com</p>
             </div>
          </div>
-         <div class="div5">
-           <a href="/certificaciones/"> CERTIFICACIONES </a>
+         <div class="div5" transition:name="certificaciones">
+           <a href="/certificaciones/"> CERTIFICADOS </a>
          </div>
-         <div class="div6">
+         <div class="div6" transition:name="proyectos">
             <a href="/proyectos/"> PROYECTOS </a>
          </div>
-         <div class="div7">
+         <div class="div7" transition:name="skills">
             <a href="/skills/"> SKILLS </a>
          </div>
-         <div class="div8 flex flex-col items-center justify-center">
-            <svg id="contact-a_img" version="1.0" xmlns="http://www.w3.org/2000/svg" width="206.667" height="206.667" viewBox="0 0 155 155"><path d="M49 59.2c-5.2 2.7-7.6 5.8-10 12.9-2 5.9-1 5.4-14.7 7.5-3 .4-4.9 2.7-3.7 4.5.3.5 3.9.9 7.9.9h7.4l-.2 8.2c-.2 7.7-.1 8.3 1.8 8.3 1.8 0 2.1-1 2.9-8.2 1.1-9.7-.7-8.8 19.6-10.1 14.7-1 14.3-1.2 16 8.8 1.3 7.7 3.2 10.3 5.6 7.9 1.3-1.3 1.3-2.4-.1-8.8C79.3 80.6 79.1 81 85.8 81c6.5 0 13.2-1.6 13.2-3.1 0-.6-.5-1.9-1.1-3-1-1.9-1.7-2-10.8-1.4l-9.8.7-1.2-3.2c-1.5-4.5-5.7-9.8-9.5-12.1-4.3-2.7-12-2.5-17.6.3zm12.9 7.9c3.2 2 7 5.7 7.1 7 0 .3-3.5.9-7.7 1.3-4.3.4-10.2 1-13 1.3l-5.3.6 1.1-3.2c.6-1.7 2.5-4.5 4.1-6.1 3.6-3.7 8.7-4 13.7-.9z"/></svg>
+         <div class="div8 flex flex-col items-center justify-center relative" transition:name="contacto">
+            <svg id="contact-a_img" version="1.0" xmlns="http://www.w3.org/2000/svg" width="200.667" height="200.667" viewBox="0 0 155 155"><path d="M49 59.2c-5.2 2.7-7.6 5.8-10 12.9-2 5.9-1 5.4-14.7 7.5-3 .4-4.9 2.7-3.7 4.5.3.5 3.9.9 7.9.9h7.4l-.2 8.2c-.2 7.7-.1 8.3 1.8 8.3 1.8 0 2.1-1 2.9-8.2 1.1-9.7-.7-8.8 19.6-10.1 14.7-1 14.3-1.2 16 8.8 1.3 7.7 3.2 10.3 5.6 7.9 1.3-1.3 1.3-2.4-.1-8.8C79.3 80.6 79.1 81 85.8 81c6.5 0 13.2-1.6 13.2-3.1 0-.6-.5-1.9-1.1-3-1-1.9-1.7-2-10.8-1.4l-9.8.7-1.2-3.2c-1.5-4.5-5.7-9.8-9.5-12.1-4.3-2.7-12-2.5-17.6.3zm12.9 7.9c3.2 2 7 5.7 7.1 7 0 .3-3.5.9-7.7 1.3-4.3.4-10.2 1-13 1.3l-5.3.6 1.1-3.2c.6-1.7 2.5-4.5 4.1-6.1 3.6-3.7 8.7-4 13.7-.9z"/></svg>
             <h3><a href="/contacto/">TRABAJEMOS <br/> JUNTOS.</a></h3>
          </div>
          <div class="div9">
@@ -82,10 +82,6 @@ import Marquee from "../components/Marquee.astro"
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(10, 1fr);
     margin-top: 3rem;
-   }
-
-   h1 {
-      text-shadow: 5px 5px #c63f3e;
    }
 
    #hero_card-info p {
@@ -226,6 +222,14 @@ import Marquee from "../components/Marquee.astro"
       width: 100%;
       overflow-x: hidden;
    }
+
+   #contact-a_img {
+      display: none;
+   }
+
+   .div8 > h3 > a  > br {
+      display: none;
+   }
    
    .parent {
       display: grid;
@@ -252,23 +256,23 @@ import Marquee from "../components/Marquee.astro"
       order: -1;
    }
 
-   .div2, .div3, .div4, .div5, .div6, .div7, .div9 {
+   .div2, .div3, .div4 {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       text-align: center;
    }
 
    .div4 > div {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       text-align: center;
       width: 100%;
    }
 
    .div4 > div > p {
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       color: var(--icons);
    }
 
@@ -306,5 +310,7 @@ import Marquee from "../components/Marquee.astro"
    .parent > div {
       margin-bottom: 0.5rem; /* Reduce el margen inferior */
    }
+
+
 }
 </style>

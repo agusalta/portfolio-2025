@@ -34,7 +34,7 @@ const proyectos = [
 
 <Layout title="Mis Proyectos">
   <BackButton />
-  <div class="projects-container">
+  <div class="projects-container" transition:name="proyectos">
     <h2>Proyectos.</h2>
     <div class="projects-grid">
       {proyectos.map((proyecto) => (
@@ -73,12 +73,6 @@ const proyectos = [
     max-width: 1200px;
     margin: 0 auto;
     padding: 5rem;
-  }
-
-  h1 {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
   }
 
   .projects-grid {

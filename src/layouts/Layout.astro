@@ -1,11 +1,7 @@
 ---
+import PreloadSkillIcons from '../components/PreloadSkillIcons.astro';
+import { ClientRouter } from 'astro:transitions';
 import ThemeIcon from '../components/ThemeIcon.astro';
-
-interface Props {
-	title?: string;
-}
-
-const { title = "Astro Basics" } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,10 +13,12 @@ const { title = "Astro Basics" } = Astro.props;
 		<link rel="stylesheet" href="/src/styles/normalize.css" />
 		<link rel="stylesheet" href="/src/styles/global.css" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Agustin altamirano</title>
+		<PreloadSkillIcons />
+		<title>Agustin Altamirano</title>
+		<ClientRouter fallback="swap"/>
 	</head>
 	<body>
-		<ThemeIcon />
+		<ThemeIcon/>
 		<slot />
 	</body>
 </html>

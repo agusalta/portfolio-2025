@@ -31,7 +31,7 @@
     }
 
     .svg-object {
-        width: 300px; 
+        width: auto; 
         height: auto;
         margin-right: 50px; 
         filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2)); 
@@ -52,24 +52,25 @@
     }
 </style>
 
-<script>
+<script is:inline data-astro-rerun>
     document.addEventListener("DOMContentLoaded", function () {
-        const marquee = document.querySelector(".marquee") as HTMLElement | null;
+        document.addEventListener('astro:page-load', () => {
+        const marquee = document.querySelector(".marquee");
         if (!marquee) return;
         
-        const items = Array.from(marquee.children) as HTMLElement[]; // Aseguramos el tipo correcto
+        const items = Array.from(marquee.children); // Aseguramos el tipo correcto
 
         function duplicateItems() {
             if (!marquee) return;
             let totalWidth = 0;
             
             items.forEach(item => {
-                totalWidth += (item as HTMLElement).offsetWidth + 50; // Convertimos `item` a `HTMLElement`
+                totalWidth += (item).offsetWidth + 50; // Convertimos `item` a `HTMLElement`
             });
 
             while (totalWidth < window.innerWidth * 2) {
                 items.forEach(item => {
-                    let clone = item.cloneNode(true) as HTMLElement;
+                    let clone = item.cloneNode(true);
                     marquee.appendChild(clone);
                 });
                 totalWidth *= 2;
@@ -77,6 +78,7 @@
         }
 
         duplicateItems();
+        });
     });
 
 </script>
