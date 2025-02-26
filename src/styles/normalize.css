@@ -12,7 +12,6 @@
 /* 2. Set default font size and family */
 html {
   font-size: 16px;
-  font-family: "Arial", sans-serif;
 }
 
 /* 3. Normalize line height and prevent overflow */
@@ -36,7 +35,7 @@ a {
 a:focus,
 a:hover {
   outline: none;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* 6. Set default styles for headings */
