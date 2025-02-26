@@ -41,7 +41,7 @@ html.dark {
   font-family: "Barlow";
   font-style: normal;
   font-weight: 400;
-  src: url("/public/fonts/barlow-v12-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/fonts/barlow-v12-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* barlow-italic - latin */
@@ -50,7 +50,7 @@ html.dark {
   font-family: "Barlow";
   font-style: italic;
   font-weight: 400;
-  src: url("/public/fonts/barlow-v12-latin-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/fonts/barlow-v12-latin-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* barlow-500 - latin */
@@ -59,7 +59,7 @@ html.dark {
   font-family: "Barlow";
   font-style: normal;
   font-weight: 500;
-  src: url("/public/fonts/barlow-v12-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/fonts/barlow-v12-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 html {
