@@ -65,6 +65,7 @@ html.dark {
 html {
   font-size: 16px;
   font-family: "Barlow", sans-serif;
+  zoom: 0.7;
 }
 
 h1 {
