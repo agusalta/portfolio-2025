@@ -1,19 +1,15 @@
 import { defineConfig } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
+import tailwind from "@astrojs/tailwind"; // Importación actualizada
 import react from "@astrojs/react";
-import vercel from "@astrojs/vercel/serverless";
+import netlify from "@astrojs/netlify/static"; // Adaptador para Netlify
 
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()],
-  },
-
+  site: "https://shiny-gnome-1c4059.netlify.app/",
   experimental: {
     svg: true,
   },
-
   prefetch: true,
-  integrations: [react()],
-  output: "server",
-  adapter: vercel(),
+  integrations: [react(), tailwind()], // Añadir la integración tailwind
+  output: "static", // Cambiar a static para Netlify
+  adapter: netlify(), // Usar el adaptador de Netlify
 });
