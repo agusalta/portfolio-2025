@@ -238,9 +238,8 @@ import Marquee from "../components/Marquee.astro";
       gap: 1rem;
       place-items: center;
       margin-top: 0;
-      /* Elimina scale y transform */
-      scale: 1; /* Restaura el tamaño original */
-      transform: none; /* Elimina la transformación */
+      scale: 1;
+      transform: none;
    }
 
    .parent > div {
@@ -280,20 +279,19 @@ import Marquee from "../components/Marquee.astro";
       display: none;
    }
 
-   /* Ajusta los SVGs para móviles */
    #hero_img-plant {
       transform: translate(-130%, -65%);
-      width: 40%; /* Reduce el tamaño */
+      width: 40%;
    }
 
    #hero_img-plant-mirror {
       transform: translate(130%, -65%) scaleX(-1);
-      width: 40%; /* Reduce el tamaño */
+      width: 40%;
    }
 
    #hero_img {
-      width: 100%; /* Ajusta el ancho */
-      height: auto; /* Mantén la proporción */
+      width: 100%;
+      height: auto;
    }
 
    .div1 > div {
@@ -301,16 +299,27 @@ import Marquee from "../components/Marquee.astro";
       width: 100%;
    }
 
-   /* Ajusta el alto del contenedor .parent */
    .parent {
-      min-height: auto; /* Evita un alto excesivo */
+      min-height: auto;
    }
 
-   /* Reduce el espacio vertical */
    .parent > div {
-      margin-bottom: 0.5rem; /* Reduce el margen inferior */
+      margin-bottom: 0.5rem;
    }
 
+   .div4 {
+      flex-direction: column;
+      align-items: center;
+   }
 
+   .div4 > div {
+      flex-direction: column;
+      align-items: center;
+   }
+
+   .div4 > div > p {
+      font-size: 1rem;
+      text-align: center;
+   }
 }
 </style>
