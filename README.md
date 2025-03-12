@@ -2,6 +2,8 @@
 
 Welcome to my personal portfolio! This project is built with **Astro** and **Tailwind CSS**, and it's designed to showcase my skills, projects, certifications, and provide an easy way to contact me.
 
+<img src="public\assets\portfolio-demo.png" alt="Preview of the home page" style="max-width: 100%;" />
+
 ---
 
 ## 🛠️ Technologies Used
