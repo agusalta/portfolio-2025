@@ -10,7 +10,8 @@ const proyectos = [
     periodo: "Ago. 2023 – Nov. 2023",
     descripcion: "Esta página se centró en la creación de un manual de instrucciones y una calculadora especializada para el dimensionamiento de tubos de cobre. Diseñados específicamente para profesionales de la industria, como fontaneros, contratistas de calefacción e ingenieros, estos recursos son una herramienta esencial para la planificación y diseño de sistemas de rociadores contra incendios, plomería y calefacción solar.",
     tecnologias: ["HTML", "CSS", "JavaScript"],
-    icon: "CALCULATOR" ,
+    icon: "CALCULATOR",
+    url: "https://copper-tube-calculator-v2.netlify.app/",
   },
   {
     titulo: "SISTEMA DE GESTIÓN MUNICIPAL",
@@ -18,7 +19,8 @@ const proyectos = [
     periodo: "Ene. 2024 – Dic. 2024",
     descripcion: "Este sistema fue desarrollado para optimizar la gestión administrativa de la Municipalidad de San Isidro. Entre sus principales funcionalidades se incluyeron el manejo del presentismo, la gestión de viáticos y la administración de empleados según sus roles administrativos. Diseñado para mejorar la eficiencia operativa, este sistema permitió una mejor organización y control de los recursos municipales.",
     tecnologias: ["React", "Next.js", "Tailwind CSS", "Node.js", "NestJS", "TypeORM", "SQL", "Jira"],
-    icon: "BUILDING" ,
+    icon: "BUILDING",
+    url: "https://github.com/samefede/msi-front",
   },
   {
     titulo: "CARDIOSYS – SISTEMA DE GESTIÓN MÉDICA",
@@ -27,9 +29,9 @@ const proyectos = [
     descripcion: "CardioSys es un sistema especializado en la gestión de consultorios médicos, diseñado para facilitar el manejo de pacientes y su historial clínico. Incluye funcionalidades avanzadas como la administración de archivos médicos, la generación de reportes en formato PDF y un sistema seguro para la gestión de datos clínicos. Este software ha sido una herramienta clave para mejorar la organización y eficiencia en la atención médica, garantizando un acceso rápido y seguro a la información de los pacientes.",
     tecnologias: ["React", "Next.js", "Tailwind CSS", "Node.js", "NestJS", "SQL", "Shadcn UI", "Figma", "Railway", "Vercel"],
     icon: "HEART",
+    url: "https://github.com/agusalta/Cardiosys",
   },
 ];
-
 ---
 
 <Layout title="Mis Proyectos">
@@ -51,16 +53,19 @@ const proyectos = [
               </div>
             </header>
             <p class="descripcion">{proyecto.descripcion}</p>
-            {proyecto.tecnologias && (
-              <div class="tecnologias">
-                <h3>Tecnologías utilizadas:</h3>
-                <div class="tech-tags">
-                  {proyecto.tecnologias.map((tech) => (
-                    <span class="tech-tag">{tech}</span>
-                  ))}
+            <div class="proyecto-footer">
+              <a class="project-link" href={proyecto.url} target="_blank" rel="noopener noreferrer">Ver proyecto</a>
+              {proyecto.tecnologias && (
+                <div class="tecnologias">
+                  <h3>Tecnologías utilizadas:</h3>
+                  <div class="tech-tags">
+                    {proyecto.tecnologias.map((tech) => (
+                      <span class="tech-tag">{tech}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </article>
       ))}
@@ -90,15 +95,17 @@ const proyectos = [
     margin-top: 2rem;
   }
 
-  .project-card:hover {
-    transform: translateY(-5px);
-  }
-
   .project-icon {
     flex-shrink: 0;
     width: 60px;
     text-align: center;
     fill: var(--icons);
+    transition: transform 0.4s ease;
+  }
+
+  .project-icon:hover {
+    transform: scale(1.1) rotate(-8deg);
+    cursor: pointer;
   }
 
   .project-icon img {
@@ -136,6 +143,22 @@ const proyectos = [
     line-height: 1.6;
     margin-bottom: 1.5rem;
     text-align: justify;
+  }
+
+  .proyecto-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .project-link {
+    color: var(--icons);
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 0.95rem;
+    white-space: nowrap;
   }
 
   .tecnologias h3 {
@@ -179,6 +202,11 @@ const proyectos = [
 
     .project-card:hover {
       transform: none;
+    }
+
+    .proyecto-footer {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>
