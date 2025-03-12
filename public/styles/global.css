@@ -76,17 +76,17 @@ html {
   font-family: "Mangueira", "Recht", "Times New Roman", Times, sans-serif;
 }
 
-h1 {
-  font-size: 5rem;
-  font-family: "Recht", sans-serif;
-  color: var(--text-headline);
-  text-transform: uppercase;
-  font-weight: 600;
-  font-style: bold;
-  margin-left: -1rem;
+body h1 {
+  font-size: 5rem !important;
+  font-family: "Recht", sans-serif !important;
+  color: var(--text-headline) !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  font-style: bold !important;
+  margin-left: -1rem !important;
 }
 
-h2 {
+body h2 {
   font-size: 3.5rem;
   font-family: "Mangueira", sans-serif;
   text-align: left;
@@ -124,16 +124,16 @@ button {
 }
 
 @media (max-width: 1300px) {
-  h1 {
-    font-size: 3rem;
-    text-align: left;
-    margin: 0;
-    width: 100%;
-    z-index: -2000;
+  body h1 {
+    font-size: 3rem !important;
+    text-align: left !important;
+    margin: 0 !important;
+    width: 100% !important;
+    z-index: -2000 !important;
   }
 
-  h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+  body h2 {
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !;
   }
 }
