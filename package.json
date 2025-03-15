@@ -1,5 +1,5 @@
 {
-  "name": "tender-tower",
+  "name": "agustin-altamirano-portfolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -12,7 +12,10 @@
     "@astrojs/netlify": "^6.2.2",
     "@astrojs/react": "^4.2.0",
     "@astrojs/tailwind": "^6.0.0",
+<<<<<<< HEAD
     "@astrojs/vercel": "^8.0.8",
+=======
+>>>>>>> main
     "@tailwindcss/vite": "^4.0.6",
     "@types/react": "^19.0.9",
     "@types/react-dom": "^19.0.3",
