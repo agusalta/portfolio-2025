@@ -15,6 +15,7 @@
   --icons: #d84c47;
   --hero: #d84c47;
   --badge: #d84c47;
+  --hero-p: #1d1d1b;
 }
 
 html.dark {
@@ -30,6 +31,7 @@ html.dark {
   --icons: #eac119;
   --hero: #1d1d1b;
   --badge: #ed773c;
+  --hero-p: #eac119;
 }
 
 ::selection {

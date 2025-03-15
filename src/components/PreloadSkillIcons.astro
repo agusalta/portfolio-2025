@@ -4,6 +4,6 @@ import { skillCategories } from '../data/skills';
 
 {skillCategories.map(category => (
   category.skills.map(skill => (
-    <link rel="preload" as="image" href={`/src/assets/skills-icons/${skill.icon}.svg`} type="image/svg+xml" />
+    <link rel="preload" as="image" href={`/icons/${skill.icon}.svg`} type="image/svg+xml" />
   ))
 ))}
