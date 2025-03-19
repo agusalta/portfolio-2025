@@ -150,6 +150,16 @@ import Marquee from "../components/Marquee.astro";
       height: 100px;
    }
 
+   svg:not(#hero_img) {
+      stroke: var(--text-primary);
+      stroke-width: 1px;
+      filter: drop-shadow(3px 3px var(--border)) drop-shadow(-3px -3px var(--icons));
+      fill-opacity: 0;
+      stroke-dasharray: 1300;
+      stroke-dashoffset: 1300;
+      animation: dash 4s ease-in forwards;
+   }
+
    button {
       width: 100%;
       height: 100%;
