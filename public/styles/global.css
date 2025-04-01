@@ -5,7 +5,7 @@
 :root {
   --background: #eae4da;
   --text-primary: #1d1d1b;
-  --text-headline: #c63f3e;
+  --text-headline: #1d1d1b;
   --text-invert: #eae4da;
   --text-secondary: #ed773c;
   --button-bg: #ed773c;
@@ -79,13 +79,12 @@ html {
 }
 
 body h1 {
-  font-size: 5rem !important;
-  font-family: "Recht", sans-serif !important;
+  font-size: 6rem !important;
+  font-family: "Mangueira", sans-serif !important;
   color: var(--text-headline) !important;
   text-transform: uppercase !important;
-  font-weight: 600 !important;
-  font-style: bold !important;
-  margin-left: -1rem !important;
+  transform: translateY(3rem);
+  margin-left: -0.8rem !important;
 }
 
 body h2 {
@@ -132,6 +131,7 @@ button {
     margin: 0 !important;
     width: 100% !important;
     z-index: -2000 !important;
+    transform: none;
   }
 
   body h2 {
