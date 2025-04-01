@@ -126,6 +126,7 @@ button {
 
 @media (max-width: 1300px) {
   body h1 {
+    display: none;
     font-size: 2rem !important;
     text-align: left !important;
     margin: 0 !important;
