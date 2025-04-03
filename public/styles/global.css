@@ -16,6 +16,7 @@
   --hero: #d84c47;
   --badge: #d84c47;
   --hero-p: #1d1d1b;
+  --popup-b: #1d1d1b;
 }
 
 html.dark {
@@ -32,6 +33,7 @@ html.dark {
   --hero: #1d1d1b;
   --badge: #ed773c;
   --hero-p: #eac119;
+  --popup-b: #eae4da;
 }
 
 ::selection {

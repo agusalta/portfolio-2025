@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Marquee from "../components/Marquee.astro";
+import Popup from "../components/Popup.astro";
 ---
 
 <Layout>
@@ -73,6 +74,7 @@ import Marquee from "../components/Marquee.astro";
          </div>   
       </div>    
    </div>
+   <Popup />
 </Layout>
 
 <style>
@@ -147,7 +149,7 @@ import Marquee from "../components/Marquee.astro";
       align-items: center;
       text-transform: uppercase;
       width: 100%;
-      height: 100px;
+      height: 113.5px;
    }
 
    svg:not(#hero_img) {
@@ -290,12 +292,12 @@ import Marquee from "../components/Marquee.astro";
    }
 
    #hero_img-plant {
-      transform: translate(-130%, -65%);
+      transform: translate(-131.5%, -64%);
       width: 40%;
    }
 
    #hero_img-plant-mirror {
-      transform: translate(130%, -65%) scaleX(-1);
+      transform: translate(131.5%, -64%) scaleX(-1);
       width: 40%;
    }
 
