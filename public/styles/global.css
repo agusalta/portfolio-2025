@@ -72,7 +72,7 @@ html.dark {
   src: url("/fonts/mangueira/mangueira-regular.otf") format("opentype");
   font-weight: 400; /* Normal */
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 html {
