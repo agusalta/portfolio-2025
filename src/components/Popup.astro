@@ -1,0 +1,143 @@
+<section id="blog-popup">
+    <div id="popup" class="popup-container">
+    <div class="popup-content">
+        <p>¡Nuevo contenido en el blog! <a class="link-button" href="/blog">→</a></p>
+        <button id="closePopup" class="close-button">×</button>
+    </div>
+    </div>
+</section>
+<style>
+    #blog-popup {
+        position: relative;
+    }
+    .popup-container {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        border-radius: 8px;
+        overflow: hidden;
+        max-width: 320px;
+    }
+    .popup-container.show {
+        opacity: 1;
+        transform: translateY(0);
+        animation: pulse 2s ease-in-out 1;
+    }
+    .popup-content {
+        background-color: var(--background);
+        color: var(--text-primary);
+        padding: 18px 28px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border: 1px solid var(--popup-b);
+        border-left: 4px solid var(--text-secondary);
+        position: relative;
+    }
+    .popup-content p {
+        margin: 0;
+        font-weight: 500;
+    }
+    .popup-content a {
+        color: var(--text-secondary) !important;
+        text-decoration: none !important;
+        font-weight: 600 !important;
+        font-size: 1.3em !important;
+        transition: transform 0.3s ease, color 0.3s ease !important;
+        display: inline-block !important;
+        margin-left: 10px !important;
+    }
+    .popup-content a:hover {
+        transform: translateX(5px) !important;
+        color: var(--text-secondary) !important;
+    }
+    .close-button {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 20px;
+        cursor: pointer;
+        padding: 0 5px;
+        line-height: 1;
+        transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .close-button:hover {
+        color: var(--text-secondary);
+        transform: rotate(90deg);
+    }
+    .link-button {
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        transition: transform 0.3s ease;
+    }
+    .link-button:hover {
+        transform: translateX(5px);
+    }
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(var(--text-secondary-rgb, 0, 123, 255), 0.4); }
+        70% { box-shadow: 0 0 0 10px rgba(var(--text-secondary-rgb, 0, 123, 255), 0); }
+        100% { box-shadow: 0 0 0 0 rgba(var(--text-secondary-rgb, 0, 123, 255), 0); }
+    }
+    @media (max-width: 768px) {
+        .popup-container {
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            max-width: calc(100% - 20px);
+        }
+        .popup-content {
+            padding: 15px 25px;
+            font-size: 14px;
+        }
+    }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('popup');
+    const closeButton = document.getElementById('closePopup');
+    if (popup && closeButton) {
+      // Check if popup has been closed before
+      if (!localStorage.getItem('popupClosed')) {
+        // Show popup after a short delay
+        setTimeout(() => {
+          popup.classList.add('show');
+        }, 1500);
+      }
+      closeButton.addEventListener('click', () => {
+        popup.classList.remove('show');
+        localStorage.setItem('popupClosed', 'true');
+        
+        // Add fade out effect
+        popup.style.opacity = '0';
+        popup.style.transform = 'translateY(20px)';
+      });
+    }
+    
+    // Reset popup after 30 days
+    const lastClosed = localStorage.getItem('popupClosedDate');
+    if (lastClosed) {
+      const thirtyDaysAgo = new Date();
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+      if (new Date(lastClosed) < thirtyDaysAgo) {
+        localStorage.removeItem('popupClosed');
+      }
+    }
+    
+    // Store date when closed
+    closeButton?.addEventListener('click', () => {
+      localStorage.setItem('popupClosedDate', new Date().toString());
+    });
+  });
+</script>
