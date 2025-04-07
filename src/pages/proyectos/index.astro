@@ -12,6 +12,7 @@ const proyectos = [
     tecnologias: ["HTML", "CSS", "JavaScript"],
     icon: "CALCULATOR",
     url: "https://copper-tube-calculator-v2.netlify.app/",
+    deploy: "true",
   },
   {
     titulo: "SISTEMA DE GESTIÓN MUNICIPAL",
@@ -21,6 +22,7 @@ const proyectos = [
     tecnologias: ["React", "Next.js", "Tailwind CSS", "Node.js", "NestJS", "TypeORM", "SQL", "Jira"],
     icon: "BUILDING",
     url: "https://github.com/samefede/msi-front",
+    deploy: "false",
   },
   {
     titulo: "CARDIOSYS – SISTEMA DE GESTIÓN MÉDICA",
@@ -29,7 +31,8 @@ const proyectos = [
     descripcion: "CardioSys es un sistema especializado en la gestión de consultorios médicos, diseñado para facilitar el manejo de pacientes y su historial clínico. Incluye funcionalidades avanzadas como la administración de archivos médicos, la generación de reportes en formato PDF y un sistema seguro para la gestión de datos clínicos. Este software ha sido una herramienta clave para mejorar la organización y eficiencia en la atención médica, garantizando un acceso rápido y seguro a la información de los pacientes.",
     tecnologias: ["React", "Next.js", "Tailwind CSS", "Node.js", "NestJS", "SQL", "Shadcn UI", "Figma", "Railway", "Vercel"],
     icon: "HEART",
-    url: "https://github.com/agusalta/Cardiosys",
+    url: "https://sistema-medico-eight.vercel.app/login",
+    deploy: "true",
   },
 ];
 ---
@@ -54,7 +57,15 @@ const proyectos = [
             </header>
             <p class="descripcion">{proyecto.descripcion}</p>
             <div class="proyecto-footer">
-              <a class="project-link" href={proyecto.url} target="_blank" rel="noopener noreferrer">Ver proyecto</a>
+              {proyecto.deploy === "false" ? (
+                <div class="project-status">
+                  <span class="no-deploy">Repositorio privado — estará disponible pronto</span>
+                </div>
+              ) : (
+                <a class="project-link" href={proyecto.url} target="_blank" rel="noopener noreferrer">
+                  Ver proyecto
+                </a>
+              )}
               {proyecto.tecnologias && (
                 <div class="tecnologias">
                   <h3>Tecnologías utilizadas:</h3>
@@ -151,6 +162,26 @@ const proyectos = [
     align-items: flex-start;
     gap: 1rem;
     flex-wrap: wrap;
+  }
+
+  .project-status {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .no-deploy {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+    position: relative;
+  }
+
+  .no-deploy::before {
+    content: "•";
+    margin-right: 0.5rem;
+    color: #c63f3e;
   }
 
   .project-link {
