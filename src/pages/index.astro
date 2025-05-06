@@ -74,7 +74,7 @@ import Popup from "../components/Popup.astro";
          </div>   
       </div>    
    </div>
-   <Popup />
+   <!-- <Popup /> esto es para mostrar la notificación para cuando haya un blog -->
 </Layout>
 
 <style>
@@ -111,6 +111,7 @@ import Popup from "../components/Popup.astro";
       stroke-dashoffset: 1300;
       animation: dash 3s ease-in forwards;
       cursor: crosshair;
+      -webkit-animation: dash 3s ease-in forwards;
    }
 
    @keyframes dash {
@@ -118,7 +119,18 @@ import Popup from "../components/Popup.astro";
          fill-opacity: 0;
       }
       100% {
-         fill-opacity: 100%;
+         fill-opacity: 1;
+         stroke-dashoffset: 0;
+         stroke-width: 1;
+      }
+   }
+
+   @-webkit-keyframes dash {
+      70% {
+         fill-opacity: 0;
+      }
+      100% {
+         fill-opacity: 1;
          stroke-dashoffset: 0;
          stroke-width: 1;
       }
@@ -240,6 +252,7 @@ import Popup from "../components/Popup.astro";
    #contact-a_img {
       display: none;
    }
+   
 
    .div8 > h3 > a  > br {
       display: none;
@@ -293,18 +306,31 @@ import Popup from "../components/Popup.astro";
    }
 
    #hero_img-plant {
-      transform: translate(-131.5%, -64%);
+      transform: translate(-129.5%, -54%);
       width: 40%;
    }
 
    #hero_img-plant-mirror {
-      transform: translate(131.5%, -64%) scaleX(-1);
+      transform: translate(129.5%, -54%) scaleX(-1);
       width: 40%;
    }
 
    #hero_img {
       width: 100%;
       height: auto;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+   }
+
+   #hero_img path {
+      fill: var(--hero);
+      fill-opacity: 1;
+      stroke: var(--text-primary);
+      stroke-width: 1px;
+      -webkit-animation: none;
+      animation: none;
+      stroke-dasharray: none;
+      stroke-dashoffset: 0;
    }
 
    .div1 > div {
